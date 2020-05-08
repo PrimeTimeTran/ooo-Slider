@@ -16,7 +16,6 @@ import {
 
 const startSlide = (presInfo, stateSlider, slideAsset, player) => {
   try {
-
     PresentationPlayer.start(
       presInfo,
       "content",
@@ -46,10 +45,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.go()
+    this.setupSlider()
+
+    setTimeout(this.setupSlider, 500)
   }
 
-  go = () => {
+  setupSlider = () => {
     if (true) {
       const { learner_next_level } = bookingClassroomData;
       this.slideAsset = `https://cdn.1on1english.vn/lessons/${learner_next_level}/`;
@@ -108,7 +109,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.go}>Start</button>
         <div id="preloader" />
         <div id="content"></div>
       </div>
